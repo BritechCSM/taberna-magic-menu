@@ -41,7 +41,6 @@ export const FeaturedDishes = () => {
         backgroundPosition: 'center',
       }}
     >
-      <div className="absolute inset-0 bg-black/50"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Platos Destacados</h2>
