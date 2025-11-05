@@ -198,22 +198,22 @@ export const MenuItemsManager = () => {
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Gestión de Platos</h2>
+        <h2 className="text-2xl font-bold text-white">Gestión de Platos</h2>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button onClick={resetForm}>
+            <Button onClick={resetForm} className="bg-primary hover:bg-primary/90">
               <Plus className="mr-2 h-4 w-4" /> Nuevo Plato
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-zinc-900 border-white/10">
             <DialogHeader>
-              <DialogTitle>
+              <DialogTitle className="text-white">
                 {editingItem ? "Editar Plato" : "Nuevo Plato"}
               </DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="name">Nombre</Label>
+                <Label htmlFor="name" className="text-white">Nombre</Label>
                 <Input
                   id="name"
                   value={formData.name}
@@ -221,21 +221,23 @@ export const MenuItemsManager = () => {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   required
+                  className="bg-black/50 border-white/10 text-white"
                 />
               </div>
               <div>
-                <Label htmlFor="description">Descripción</Label>
+                <Label htmlFor="description" className="text-white">Descripción</Label>
                 <Textarea
                   id="description"
                   value={formData.description}
                   onChange={(e) =>
                     setFormData({ ...formData, description: e.target.value })
                   }
+                  className="bg-black/50 border-white/10 text-white"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="price">Precio (€)</Label>
+                  <Label htmlFor="price" className="text-white">Precio (€)</Label>
                   <Input
                     id="price"
                     type="number"
@@ -245,22 +247,23 @@ export const MenuItemsManager = () => {
                       setFormData({ ...formData, price: e.target.value })
                     }
                     required
+                    className="bg-black/50 border-white/10 text-white"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="category">Categoría</Label>
+                  <Label htmlFor="category" className="text-white">Categoría</Label>
                   <Select
                     value={formData.category_id}
                     onValueChange={(value) =>
                       setFormData({ ...formData, category_id: value })
                     }
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="bg-black/50 border-white/10 text-white">
                       <SelectValue placeholder="Selecciona categoría" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-zinc-900 border-white/10">
                       {categories?.map((cat) => (
-                        <SelectItem key={cat.id} value={cat.id}>
+                        <SelectItem key={cat.id} value={cat.id} className="text-white">
                           {cat.name}
                         </SelectItem>
                       ))}
@@ -269,17 +272,18 @@ export const MenuItemsManager = () => {
                 </div>
               </div>
               <div>
-                <Label htmlFor="image_url">URL de Imagen</Label>
+                <Label htmlFor="image_url" className="text-white">URL de Imagen</Label>
                 <Input
                   id="image_url"
                   value={formData.image_url}
                   onChange={(e) =>
                     setFormData({ ...formData, image_url: e.target.value })
                   }
+                  className="bg-black/50 border-white/10 text-white"
                 />
               </div>
               <div>
-                <Label>Alérgenos</Label>
+                <Label className="text-white">Alérgenos</Label>
                 <div className="grid grid-cols-2 gap-2 mt-2">
                   {allergenOptions.map((allergen) => (
                     <div key={allergen.value} className="flex items-center space-x-2">
@@ -287,10 +291,11 @@ export const MenuItemsManager = () => {
                         id={allergen.value}
                         checked={formData.allergens.includes(allergen.value)}
                         onCheckedChange={() => toggleAllergen(allergen.value)}
+                        className="border-white/20"
                       />
                       <label
                         htmlFor={allergen.value}
-                        className="text-sm cursor-pointer"
+                        className="text-sm cursor-pointer text-white"
                       >
                         {allergen.label}
                       </label>
@@ -305,13 +310,14 @@ export const MenuItemsManager = () => {
                   onCheckedChange={(checked) =>
                     setFormData({ ...formData, is_featured: !!checked })
                   }
+                  className="border-white/20"
                 />
-                <label htmlFor="is_featured" className="text-sm cursor-pointer">
+                <label htmlFor="is_featured" className="text-sm cursor-pointer text-white">
                   Plato destacado
                 </label>
               </div>
               <div>
-                <Label htmlFor="display_order">Orden de visualización</Label>
+                <Label htmlFor="display_order" className="text-white">Orden de visualización</Label>
                 <Input
                   id="display_order"
                   type="number"
@@ -322,9 +328,10 @@ export const MenuItemsManager = () => {
                       display_order: parseInt(e.target.value),
                     })
                   }
+                  className="bg-black/50 border-white/10 text-white"
                 />
               </div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
                 {editingItem ? "Actualizar" : "Crear"}
               </Button>
             </form>
@@ -334,13 +341,13 @@ export const MenuItemsManager = () => {
 
       <div className="grid gap-4">
         {items?.map((item) => (
-          <Card key={item.id} className={item.is_featured ? "border-primary" : ""}>
+          <Card key={item.id} className={`bg-zinc-900 border-white/10 ${item.is_featured ? "border-primary" : ""}`}>
             <CardHeader>
-              <CardTitle className="flex justify-between items-center">
+              <CardTitle className="flex justify-between items-center text-white">
                 <div className="flex items-center gap-2">
                   <span>{item.name}</span>
                   {item.is_featured && (
-                    <Badge variant="default" className="flex items-center gap-1">
+                    <Badge variant="default" className="flex items-center gap-1 bg-primary">
                       <Star className="h-3 w-3 fill-current" />
                       Destacado
                     </Badge>
@@ -351,6 +358,7 @@ export const MenuItemsManager = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => handleEdit(item)}
+                    className="border-white/20 text-white hover:bg-white/10"
                   >
                     <Pencil className="h-4 w-4" />
                   </Button>
@@ -365,15 +373,15 @@ export const MenuItemsManager = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground mb-2">
+              <p className="text-sm text-white/60 mb-2">
                 {item.description}
               </p>
-              <div className="flex justify-between text-sm">
+              <div className="flex justify-between text-sm text-white">
                 <span className="font-semibold">Precio: {item.price}€</span>
-                <span>Categoría: {(item.menu_categories as any)?.name}</span>
+                <span className="text-white/70">Categoría: {(item.menu_categories as any)?.name}</span>
               </div>
               {item.display_order > 0 && (
-                <p className="text-xs text-muted-foreground mt-2">
+                <p className="text-xs text-white/50 mt-2">
                   Orden: {item.display_order}
                 </p>
               )}

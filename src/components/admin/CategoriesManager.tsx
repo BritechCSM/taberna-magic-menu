@@ -130,22 +130,22 @@ export const CategoriesManager = () => {
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Gestión de Categorías</h2>
+        <h2 className="text-2xl font-bold text-white">Gestión de Categorías</h2>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button onClick={resetForm}>
+            <Button onClick={resetForm} className="bg-primary hover:bg-primary/90">
               <Plus className="mr-2 h-4 w-4" /> Nueva Categoría
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="bg-zinc-900 border-white/10">
             <DialogHeader>
-              <DialogTitle>
+              <DialogTitle className="text-white">
                 {editingCategory ? "Editar Categoría" : "Nueva Categoría"}
               </DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="name">Nombre</Label>
+                <Label htmlFor="name" className="text-white">Nombre</Label>
                 <Input
                   id="name"
                   value={formData.name}
@@ -153,10 +153,11 @@ export const CategoriesManager = () => {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   required
+                  className="bg-black/50 border-white/10 text-white"
                 />
               </div>
               <div>
-                <Label htmlFor="display_order">Orden de visualización</Label>
+                <Label htmlFor="display_order" className="text-white">Orden de visualización</Label>
                 <Input
                   id="display_order"
                   type="number"
@@ -167,9 +168,10 @@ export const CategoriesManager = () => {
                       display_order: parseInt(e.target.value),
                     })
                   }
+                  className="bg-black/50 border-white/10 text-white"
                 />
               </div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
                 {editingCategory ? "Actualizar" : "Crear"}
               </Button>
             </form>
@@ -179,15 +181,16 @@ export const CategoriesManager = () => {
 
       <div className="grid gap-4">
         {categories?.map((category) => (
-          <Card key={category.id}>
+          <Card key={category.id} className="bg-zinc-900 border-white/10">
             <CardHeader>
-              <CardTitle className="flex justify-between items-center">
+              <CardTitle className="flex justify-between items-center text-white">
                 <span>{category.name}</span>
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => handleEdit(category)}
+                    className="border-white/20 text-white hover:bg-white/10"
                   >
                     <Pencil className="h-4 w-4" />
                   </Button>
@@ -202,7 +205,7 @@ export const CategoriesManager = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-white/60">
                 Orden: {category.display_order}
               </p>
             </CardContent>

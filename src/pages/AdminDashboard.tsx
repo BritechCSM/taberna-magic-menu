@@ -58,8 +58,8 @@ const AdminDashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <p className="text-muted-foreground">Cargando...</p>
+      <div className="min-h-screen flex items-center justify-center bg-black">
+        <p className="text-white/70">Cargando...</p>
       </div>
     );
   }
@@ -69,16 +69,20 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b border-border">
+    <div className="min-h-screen bg-black">
+      <div className="border-b border-white/10 bg-black/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <img src={logo} alt="La Taberna de Lara" className="h-10 w-auto" />
-            <h1 className="text-2xl font-bold">
+            <h1 className="text-2xl font-bold text-white">
               Panel de <span className="text-primary">Administración</span>
             </h1>
           </div>
-          <Button variant="outline" onClick={handleSignOut}>
+          <Button 
+            variant="outline" 
+            onClick={handleSignOut}
+            className="border-white/20 text-white hover:bg-white/10"
+          >
             Cerrar Sesión
           </Button>
         </div>
@@ -86,9 +90,19 @@ const AdminDashboard = () => {
 
       <div className="container mx-auto px-4 py-8">
         <Tabs defaultValue="items" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-8">
-            <TabsTrigger value="items">Platos del Menú</TabsTrigger>
-            <TabsTrigger value="categories">Categorías</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 mb-8 bg-white/5 border border-white/10">
+            <TabsTrigger 
+              value="items"
+              className="data-[state=active]:bg-primary data-[state=active]:text-white text-white/70"
+            >
+              Platos del Menú
+            </TabsTrigger>
+            <TabsTrigger 
+              value="categories"
+              className="data-[state=active]:bg-primary data-[state=active]:text-white text-white/70"
+            >
+              Categorías
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="items">
