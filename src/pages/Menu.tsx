@@ -63,7 +63,7 @@ const Menu = () => {
           {/* TAPAS */}
           <div id="tapas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Tapas</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="grid grid-cols-3 gap-2 mb-4 text-black font-bold">
                 <span></span>
                 <span className="text-center">MEDIA</span>
@@ -86,7 +86,7 @@ const Menu = () => {
           {/* RACIONES */}
           <div id="raciones" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Raciones</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="grid grid-cols-3 gap-2 mb-4 text-black font-bold">
                 <span></span>
                 <span className="text-center">MEDIA</span>
@@ -119,7 +119,7 @@ const Menu = () => {
           {/* ENSALADAS */}
           <div id="ensaladas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Ensaladas</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="grid grid-cols-3 gap-2 mb-4 text-black font-bold">
                 <span></span>
                 <span className="text-center">MEDIA</span>
@@ -136,7 +136,7 @@ const Menu = () => {
           {/* MONTADITOS */}
           <div id="montaditos" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Montaditos</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="space-y-2 text-black">
                 <div className="flex justify-between"><span>TABERNERO 🥚🥛🌾</span><span>4.20€</span></div>
                 <p className="text-sm">con carne, lomo, queso de cabra, pimiento verde, cebolla caramelizada</p>
@@ -155,7 +155,7 @@ const Menu = () => {
           {/* BOCADILLOS */}
           <div id="bocadillos" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Bocadillos</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="space-y-3 text-black">
                 <div>
                   <div className="flex justify-between font-bold"><span>LARA 🥚🥛🌾</span><span>7.90€</span></div>
@@ -186,7 +186,7 @@ const Menu = () => {
           {/* ARROCES */}
           <div id="arroces" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Arroces</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <p className="text-black mb-4 font-semibold">(mínimo 2 personas)</p>
               <div className="space-y-2 text-black">
                 <div className="flex justify-between"><span>A BANDA 🐚</span><span>13.90€</span></div>
@@ -201,7 +201,7 @@ const Menu = () => {
           {/* PESCADOS */}
           <div id="pescados" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Pescados</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="space-y-2 text-black">
                 <div className="flex justify-between"><span>GAMBAS ROJAS AL AJILLO 🥚🐚</span><span>8.80€</span></div>
                 <div className="flex justify-between"><span>GAMBAS PLANCHA</span><span>13.90€</span></div>
@@ -215,7 +215,7 @@ const Menu = () => {
           {/* CARNES */}
           <div id="carnes" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Carnes</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="space-y-2 text-black">
                 <div className="flex justify-between"><span>ASADO (churrascos) de ternera</span><span>16.20€</span></div>
                 <div className="flex justify-between"><span>ENTRAÑA DE TERNERA corte Argentino, coco-churri</span><span>18.20€</span></div>
@@ -231,7 +231,7 @@ const Menu = () => {
           {/* POSTRES */}
           <div id="postres" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Postres</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="space-y-2 text-black">
                 <div className="flex justify-between"><span>FLAN DE HUEVO CASERO 🥚🥛</span><span>3.50€</span></div>
                 <div className="flex justify-between"><span>PAN DE CALATRAVA 🥚🥛</span><span>3.50€</span></div>
@@ -250,7 +250,7 @@ const Menu = () => {
           <div id="bebidas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Bebidas</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h4 className="text-xl font-bold mb-4 text-black">Refrescos 350 C.C.</h4>
                 <div className="space-y-2 text-black">
                   <div className="flex justify-between"><span>COCA-COO C.C</span><span>1.35€</span></div>
@@ -266,7 +266,7 @@ const Menu = () => {
               </div>
 
               {/* Cervezas */}
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h4 className="text-xl font-bold mb-4 text-black">Cervezas</h4>
                 <div className="text-xs text-black mb-2">1/3 CAÑA PINTA 1L</div>
                 <div className="space-y-2 text-black text-sm">
@@ -284,7 +284,7 @@ const Menu = () => {
               </div>
 
               {/* Vinos */}
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h4 className="text-xl font-bold mb-4 text-black">Vinos</h4>
                 <div className="text-sm text-black mb-2">COPA / BOTELLA</div>
                 <div className="space-y-2 text-black text-sm">
@@ -304,7 +304,7 @@ const Menu = () => {
           {/* MENÚS DE GRUPO */}
           <div id="menus-grupo" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Menús de Grupos</h3>
-            <div className="bg-[#E89B3C] p-6 rounded-lg text-center mb-6">
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center mb-6">
               <h2 className="text-2xl font-bold text-black mb-2">MÍNIMO 4 PERSONAS PRECIO POR PERSONA</h2>
               <p className="text-black font-semibold">TODA LA MESA DEBERÁ PEDIR MISMO MENÚ</p>
               <p className="text-sm text-black font-bold mt-2">TODOS NUESTROS MENÚS INCLUYEN:</p>
@@ -313,7 +313,7 @@ const Menu = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* MENÚ 1 */}
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <div className="text-center mb-4">
                   <h4 className="text-2xl font-bold text-black">MENÚ 1</h4>
                   <p className="text-3xl font-bold text-black">33.50€</p>
@@ -330,7 +330,7 @@ const Menu = () => {
               </div>
 
               {/* MENÚ 2 */}
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <div className="text-center mb-4">
                   <h4 className="text-2xl font-bold text-black">MENÚ 2</h4>
                   <p className="text-3xl font-bold text-black">32.50€</p>
@@ -348,7 +348,7 @@ const Menu = () => {
               </div>
 
               {/* MENÚ 3 */}
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <div className="text-center mb-4">
                   <h4 className="text-2xl font-bold text-black">MENÚ 3</h4>
                   <p className="text-3xl font-bold text-black">29.50€</p>
@@ -364,7 +364,7 @@ const Menu = () => {
               </div>
 
               {/* MENÚ 4 */}
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <div className="text-center mb-4">
                   <h4 className="text-2xl font-bold text-black">MENÚ 4</h4>
                   <p className="text-3xl font-bold text-black">26.90€</p>
@@ -381,7 +381,7 @@ const Menu = () => {
               </div>
 
               {/* MENÚ 5 - PICOTEO */}
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <div className="text-center mb-4">
                   <h4 className="text-2xl font-bold text-black">MENÚ 5 PICOTEO</h4>
                   <p className="text-3xl font-bold text-black">19.50€</p>
@@ -399,7 +399,7 @@ const Menu = () => {
               </div>
 
               {/* MENÚ ARGENTINO */}
-              <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <div className="text-center mb-4">
                   <h4 className="text-2xl font-bold text-black">MENÚ ARGENTINO</h4>
                   <p className="text-3xl font-bold text-black">21.90€</p>
@@ -416,7 +416,7 @@ const Menu = () => {
           </div>
 
           {/* SUGERENCIAS */}
-          <div className="bg-[#E89B3C] p-8 rounded-lg text-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center">
             <h3 className="text-3xl font-bold text-black mb-6" style={{ fontFamily: 'serif' }}>SUGERENCIAS LA TABERNA</h3>
             <div className="text-black space-y-4">
               <div>
