@@ -11,7 +11,8 @@ export const Navigation = () => {
   const navLinks = [
     { href: "/", label: "Inicio" },
     { href: "/#destacados", label: "Destacados" },
-    { href: "/galeria", label: "Galería" },
+    { href: "/#menu", label: "Menú" },
+    { href: "/#galeria", label: "Galería" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -46,14 +47,6 @@ export const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Link to="/menu">
-              <Button 
-                variant="outline" 
-                className="rounded-full border-2 px-8 py-5 text-lg bg-[hsl(28,85%,55%)] text-black border-[hsl(28,85%,55%)] hover:bg-[hsl(28,85%,45%)] hover:border-[hsl(28,85%,45%)]"
-              >
-                Tu menú
-              </Button>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -78,14 +71,6 @@ export const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Link to="/menu" onClick={() => setIsOpen(false)}>
-              <Button 
-                variant="outline" 
-                className="w-full rounded-full bg-[hsl(28,85%,55%)] text-black border-[hsl(28,85%,55%)] hover:bg-[hsl(28,85%,45%)] hover:border-[hsl(28,85%,45%)]"
-              >
-                Tu menú
-              </Button>
-            </Link>
           </div>
         )}
       </div>
