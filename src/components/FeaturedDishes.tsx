@@ -7,6 +7,7 @@ import patatasBravas from "@/assets/patatas-bravas.jpeg";
 import arroces from "@/assets/arroces.jpeg";
 import calamar from "@/assets/calamar.jpeg";
 import quesoFrito from "@/assets/queso-frito.jpg";
+import croquetasCaseras from "@/assets/croquetas-caseras.jpg";
 import plato7 from "@/assets/plato-7.png";
 import plato8 from "@/assets/plato-8.png";
 
@@ -23,7 +24,7 @@ const imageMap: Record<string, string> = {
   "Queso frito con mermelada de tomate": quesoFrito,
   "Queso frito": quesoFrito,
   "Calamares mixtos": calamar,
-  "Croquetas caseras": quesoFrito,
+  "Croquetas caseras": croquetasCaseras,
   "Tapas Variadas": plato7,
   "Empanadillas": plato8,
 };
