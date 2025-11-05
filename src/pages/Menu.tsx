@@ -1,127 +1,120 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-const allergenLabels: Record<string, string> = {
-  gluten: "Gluten",
-  crustaceans: "Crustáceos",
-  eggs: "Huevos",
-  fish: "Pescado",
-  peanuts: "Cacahuetes",
-  soy: "Soja",
-  dairy: "Lácteos",
-  nuts: "Frutos secos",
-  celery: "Apio",
-  mustard: "Mostaza",
-  sesame: "Sésamo",
-  sulfites: "Sulfitos",
-  lupin: "Altramuces",
-  molluscs: "Moluscos",
-};
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import darkTexture from "@/assets/dark-texture.jpg";
 
 const Menu = () => {
-  const { data: categories } = useQuery({
-    queryKey: ["menu-categories"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("menu_categories")
-        .select("*")
-        .order("display_order");
-      
-      if (error) throw error;
-      return data;
-    },
-  });
-
-  const { data: items } = useQuery({
-    queryKey: ["menu-items"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("menu_items")
-        .select("*")
-        .order("display_order");
-      
-      if (error) throw error;
-      return data;
-    },
-  });
-
   return (
     <div className="min-h-screen">
       <Navigation />
-      <div className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
+      
+      <main 
+        className="pt-32 pb-20 relative"
+        style={{
+          backgroundImage: `url(${darkTexture})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="container mx-auto px-4 max-w-7xl">
+          {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Nuestro Menú</h1>
-            <p className="text-lg text-muted-foreground">
-              Descubre nuestra selección de platos tradicionales y auténticos
-            </p>
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: 'serif' }}>
+              LA TABERNA
+            </h1>
+            <h2 className="text-3xl md:text-4xl text-[#E89B3C] mb-8" style={{ fontFamily: 'serif' }}>
+              Menú
+            </h2>
           </div>
 
-          <Tabs defaultValue={categories?.[0]?.id} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-6 mb-8">
-              {categories?.map((category) => (
-                <TabsTrigger key={category.id} value={category.id}>
-                  {category.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+          {/* Menu Sections Column */}
+          <div className="text-white space-y-8 max-w-md">
+            <div className="text-2xl md:text-3xl font-bold space-y-4" style={{ fontFamily: 'serif' }}>
+              <p>RACIONES</p>
+              <p>TAPAS</p>
+              <p>ENSALADAS</p>
+              <p>MONTADITOS</p>
+              <p>BOCADILLOS</p>
+              <p>ARROCES</p>
+              <p>PESCADOS</p>
+              <p>CARNES</p>
+              <p>POSTRES</p>
+              <p>BEBIDAS</p>
+              <p>MENÚS DE GRUPO</p>
+            </div>
+          </div>
 
-            {categories?.map((category) => (
-              <TabsContent key={category.id} value={category.id}>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {items
-                    ?.filter((item) => item.category_id === category.id)
-                    .map((item) => (
-                      <Card key={item.id} className="bg-gradient-card border-border">
-                        {item.image_url && (
-                          <div className="h-48 overflow-hidden">
-                            <img
-                              src={item.image_url}
-                              alt={item.name}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        )}
-                        <CardHeader>
-                          <CardTitle className="text-xl">{item.name}</CardTitle>
-                          {item.description && (
-                            <CardDescription>{item.description}</CardDescription>
-                          )}
-                        </CardHeader>
-                        <CardContent>
-                          <div className="flex justify-between items-start">
-                            <span className="text-2xl font-bold text-primary">
-                              {item.price}€
-                            </span>
-                            {item.allergens && item.allergens.length > 0 && (
-                              <div className="flex flex-wrap gap-1 justify-end flex-1 ml-4">
-                                {item.allergens.map((allergen: string) => (
-                                  <Badge
-                                    key={allergen}
-                                    variant="secondary"
-                                    className="text-xs"
-                                  >
-                                    {allergenLabels[allergen]}
-                                  </Badge>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                </div>
-              </TabsContent>
-            ))}
-          </Tabs>
+          {/* Full Menu Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            
+            {/* Refrescos */}
+            <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-black">Refrescos 350 C.C.</h3>
+              <div className="space-y-2 text-black">
+                <div className="flex justify-between"><span>COCA-COO C.C</span><span>1.35€</span></div>
+                <div className="flex justify-between"><span>AGUA CON GAS</span><span>2.50€</span></div>
+                <div className="flex justify-between"><span>REFRESCOS</span><span>2.60€</span></div>
+                <div className="flex justify-between"><span>NESTEA</span><span>2.60€</span></div>
+                <div className="flex justify-between"><span>SPRITE</span><span>2.60€</span></div>
+                <div className="flex justify-between"><span>TÓNICA SCHWEPPES</span><span>2.70€</span></div>
+                <div className="flex justify-between"><span>BITTER KAS</span><span>2.70€</span></div>
+                <div className="flex justify-between"><span>RED BULL</span><span>3.50€</span></div>
+                <div className="flex justify-between"><span>ZUMOS (don - melocotón)</span><span>2.10€</span></div>
+              </div>
+            </div>
+
+            {/* Cervezas */}
+            <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-black">Cervezas</h3>
+              <div className="text-sm text-black mb-2">1/3 CAÑA PINTA 1L</div>
+              <div className="space-y-2 text-black">
+                <div className="flex justify-between"><span>ÁGUILA - AMSTEL</span><span className="text-xs">2.30€ 2.10€ 4.20€ 6.90€</span></div>
+                <div className="flex justify-between"><span>ÁGUILA SIN FILTRAR</span><span className="text-xs">2.70€ 5.10€ 9.50€</span></div>
+                <div className="flex justify-between"><span>RADLER</span><span className="text-xs">3.20€ 5.20€ 9.50€</span></div>
+                <div className="flex justify-between"><span>HEINEKEN</span><span>2.90€</span></div>
+                <div className="flex justify-between"><span>18/70</span><span>2.90€</span></div>
+                <div className="flex justify-between"><span>AMSTEL 0.0</span><span>2.70€</span></div>
+                <div className="flex justify-between"><span>AMSTEL 0.0 TOSTADA</span><span>2.70€</span></div>
+                <div className="flex justify-between"><span>AMSTEL TOSTADA</span><span>2.70€</span></div>
+                <div className="flex justify-between"><span>CARLSBERG MANZANAS</span><span>2.80€</span></div>
+                <div className="flex justify-between"><span>TINTO DE VERANO</span><span className="text-xs">3.20€ 5.20€ 9.50€</span></div>
+              </div>
+            </div>
+
+            {/* Vinos */}
+            <div className="bg-[#E89B3C] p-6 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-black">Vinos</h3>
+              <div className="text-sm text-black mb-2">COPA / BOTELLA</div>
+              <div className="space-y-2 text-black">
+                <div className="flex justify-between"><span>BLANCO O ROSADO ALICANTE</span><span className="text-xs">2.50€ 10.90€</span></div>
+                <div className="flex justify-between"><span>RIOJA JOVEN</span><span className="text-xs">2.80€ 12.50€</span></div>
+                <div className="flex justify-between"><span>RIOJA CRIANZA</span><span className="text-xs">3.30€ 15.50€</span></div>
+                <div className="flex justify-between"><span>MALBEC ARGENTINO</span><span className="text-xs">3.80€ 16.50€</span></div>
+                <div className="flex justify-between"><span>RIBERA</span><span className="text-xs">3.00€ 15.50€</span></div>
+                <div className="flex justify-between"><span>MOSCATEL</span><span className="text-xs">3.00€ 11.50€</span></div>
+                <div className="flex justify-between"><span>VERMUTH</span><span>3.80€</span></div>
+                <div className="flex justify-between"><span>VERMUTH CON REFRESCO</span><span>4.70€</span></div>
+              </div>
+            </div>
+
+            {/* Menú de Grupos - Header */}
+            <div className="lg:col-span-3 bg-[#E89B3C] p-6 rounded-lg text-center">
+              <h2 className="text-3xl font-bold text-black mb-2">Menús de Grupos</h2>
+              <p className="text-black font-semibold">MÍNIMO 4 PERSONAS PRECIO POR PERSONA</p>
+              <p className="text-sm text-black">TODA LA MESA DEBERÁ PEDIR MISMO MENÚ</p>
+              <p className="text-sm text-black font-bold">TODOS NUESTROS MENÚS INCLUYEN:</p>
+              <p className="text-sm text-black">PLATOS FROSTI AL CENTRO O P.S. BEBIDAS DURANTE LA COMIDA, CERVEZA AMSTEL, COCACOLA, FANTA DE LIMÓN Y VERANO, VINO DE LA CASA, REFRESCOS</p>
+            </div>
+
+          </div>
         </div>
-      </div>
+      </main>
+
+      {/* Separador blanco */}
+      <div className="h-20 bg-white"></div>
+      
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

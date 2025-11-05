@@ -31,6 +31,7 @@ export const Hero = () => {
         <Button
           onClick={scrollToMenu}
           className="mt-8 bg-white text-black hover:bg-white/90 text-lg px-8 py-6 rounded-full shadow-lg transition-all hover:scale-105"
+          aria-label="Ver menú destacados"
         >
           Ver menú
         </Button>
