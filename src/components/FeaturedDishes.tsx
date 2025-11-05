@@ -1,34 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import patapasBravasImg from "@/assets/patatas-bravas.jpg";
-import jamonQuesoImg from "@/assets/jamon-queso.jpg";
-import arrozImg from "@/assets/arroz.jpg";
-import entranaImg from "@/assets/entrana.jpg";
-import calamarImg from "@/assets/calamar.jpg";
 import darkTexture from "@/assets/dark-texture.jpg";
-import tapasVariadasImg from "@/assets/tapas-variadas.jpg";
-import empanadillasImg from "@/assets/empanadillas.jpg";
-import jamonQuesoNuecesImg from "@/assets/jamon-queso-nueces.jpg";
-import entrecotVerdurasImg from "@/assets/entrecot-verduras.jpg";
-import croquetasImg from "@/assets/croquetas.jpg";
-import huevosJamonImg from "@/assets/huevos-jamon.jpg";
-import tablaJamonQuesoImg from "@/assets/tabla-jamon-queso.jpg";
-import chuletonPatatasImg from "@/assets/chuleton-patatas.jpg";
+import plato1 from "@/assets/plato-1.png";
+import plato2 from "@/assets/plato-2.png";
+import plato3 from "@/assets/plato-3.png";
+import plato4 from "@/assets/plato-4.png";
+import plato5 from "@/assets/plato-5.png";
+import plato6 from "@/assets/plato-6.png";
+import plato7 from "@/assets/plato-7.png";
+import plato8 from "@/assets/plato-8.png";
 
 const imageMap: Record<string, string> = {
-  "Arroz": arrozImg,
-  "Jamón ibérico con queso": jamonQuesoImg,
-  "Calamar Nacional": calamarImg,
-  "Entraña Argentina": entranaImg,
-  "Calamares mixtos": calamarImg,
-  "Croquetas caseras": croquetasImg,
-  "Tapas Variadas": tapasVariadasImg,
-  "Empanadillas": empanadillasImg,
-  "Jamón Ibérico con Queso y Nueces": jamonQuesoNuecesImg,
-  "Entrecot con Verduras": entrecotVerdurasImg,
-  "Huevos Rotos con Jamón": huevosJamonImg,
-  "Tabla de Jamón y Queso": tablaJamonQuesoImg,
-  "Chuletón a la Parrilla": chuletonPatatasImg,
+  "Arroz": plato1,
+  "Jamón ibérico con queso": plato2,
+  "Calamar Nacional": plato3,
+  "Entraña Argentina": plato4,
+  "Calamares mixtos": plato5,
+  "Croquetas caseras": plato6,
+  "Tapas Variadas": plato7,
+  "Empanadillas": plato8,
+  "Jamón Ibérico con Queso y Nueces": plato2,
+  "Entrecot con Verduras": plato4,
+  "Huevos Rotos con Jamón": plato6,
+  "Tabla de Jamón y Queso": plato2,
+  "Chuletón a la Parrilla": plato4,
 };
 
 export const FeaturedDishes = () => {
