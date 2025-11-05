@@ -8,7 +8,7 @@ import arroces from "@/assets/arroces.jpeg";
 import calamar from "@/assets/calamar.jpeg";
 import quesoFrito from "@/assets/queso-frito.jpg";
 import croquetasCaseras from "@/assets/croquetas-caseras.jpg";
-import calamaresMixtos from "@/assets/calamares-mixtos.png";
+import quesoFritoNuevo from "@/assets/queso-frito-nuevo.png";
 import plato7 from "@/assets/plato-7.png";
 import plato8 from "@/assets/plato-8.png";
 
@@ -22,9 +22,9 @@ const imageMap: Record<string, string> = {
   "Calamar Nacional": calamar,
   "Entraña argentina": entranaArgentina,
   "Entraña Argentina": entranaArgentina,
-  "Queso frito con mermelada de tomate": quesoFrito,
-  "Queso frito": quesoFrito,
-  "Calamares mixtos": calamaresMixtos,
+  "Queso frito con mermelada de tomate": quesoFritoNuevo,
+  "Queso frito": quesoFritoNuevo,
+  "Calamares mixtos": calamar,
   "Croquetas caseras": croquetasCaseras,
   "Tapas Variadas": plato7,
   "Empanadillas": plato8,
