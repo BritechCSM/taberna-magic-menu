@@ -7,7 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Pencil, Trash2, Plus } from "lucide-react";
+import { Pencil, Trash2, Plus, Star } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
@@ -333,10 +334,18 @@ export const MenuItemsManager = () => {
 
       <div className="grid gap-4">
         {items?.map((item) => (
-          <Card key={item.id}>
+          <Card key={item.id} className={item.is_featured ? "border-primary" : ""}>
             <CardHeader>
               <CardTitle className="flex justify-between items-center">
-                <span>{item.name}</span>
+                <div className="flex items-center gap-2">
+                  <span>{item.name}</span>
+                  {item.is_featured && (
+                    <Badge variant="default" className="flex items-center gap-1">
+                      <Star className="h-3 w-3 fill-current" />
+                      Destacado
+                    </Badge>
+                  )}
+                </div>
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
@@ -360,9 +369,14 @@ export const MenuItemsManager = () => {
                 {item.description}
               </p>
               <div className="flex justify-between text-sm">
-                <span>Precio: {item.price}€</span>
+                <span className="font-semibold">Precio: {item.price}€</span>
                 <span>Categoría: {(item.menu_categories as any)?.name}</span>
               </div>
+              {item.display_order > 0 && (
+                <p className="text-xs text-muted-foreground mt-2">
+                  Orden: {item.display_order}
+                </p>
+              )}
             </CardContent>
           </Card>
         ))}
