@@ -7,7 +7,13 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { z } from "zod";
 import logo from "@/assets/logo.png";
+
+const authSchema = z.object({
+  email: z.string().trim().email("Email inválido").max(255, "Email demasiado largo"),
+  password: z.string().min(8, "La contraseña debe tener al menos 8 caracteres").max(100, "Contraseña demasiado larga"),
+});
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -38,21 +44,42 @@ const Auth = () => {
     e.preventDefault();
     setLoading(true);
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      const validation = authSchema.safeParse({ email, password });
+      
+      if (!validation.success) {
+        const firstError = validation.error.errors[0];
+        toast({
+          title: "Error de validación",
+          description: firstError.message,
+          variant: "destructive",
+        });
+        setLoading(false);
+        return;
+      }
 
-    if (error) {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: validation.data.email,
+        password: validation.data.password,
+      });
+
+      if (error) {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "¡Bienvenido!",
+          description: "Has iniciado sesión correctamente.",
+        });
+      }
+    } catch (err) {
       toast({
         title: "Error",
-        description: error.message,
+        description: "Ha ocurrido un error inesperado",
         variant: "destructive",
-      });
-    } else {
-      toast({
-        title: "¡Bienvenido!",
-        description: "Has iniciado sesión correctamente.",
       });
     }
 
@@ -63,24 +90,45 @@ const Auth = () => {
     e.preventDefault();
     setLoading(true);
 
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${window.location.origin}/admin/dashboard`,
-      },
-    });
+    try {
+      const validation = authSchema.safeParse({ email, password });
+      
+      if (!validation.success) {
+        const firstError = validation.error.errors[0];
+        toast({
+          title: "Error de validación",
+          description: firstError.message,
+          variant: "destructive",
+        });
+        setLoading(false);
+        return;
+      }
 
-    if (error) {
+      const { error } = await supabase.auth.signUp({
+        email: validation.data.email,
+        password: validation.data.password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/admin/dashboard`,
+        },
+      });
+
+      if (error) {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "¡Cuenta creada!",
+          description: "Ahora puedes iniciar sesión.",
+        });
+      }
+    } catch (err) {
       toast({
         title: "Error",
-        description: error.message,
+        description: "Ha ocurrido un error inesperado",
         variant: "destructive",
-      });
-    } else {
-      toast({
-        title: "¡Cuenta creada!",
-        description: "Ahora puedes iniciar sesión.",
       });
     }
 
@@ -114,6 +162,7 @@ const Auth = () => {
                     placeholder="tu@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    maxLength={255}
                     required
                   />
                 </div>
@@ -125,6 +174,7 @@ const Auth = () => {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    maxLength={100}
                     required
                   />
                 </div>
@@ -144,6 +194,7 @@ const Auth = () => {
                     placeholder="tu@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    maxLength={255}
                     required
                   />
                 </div>
@@ -155,6 +206,7 @@ const Auth = () => {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    maxLength={100}
                     required
                   />
                 </div>
