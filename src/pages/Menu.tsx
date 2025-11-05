@@ -1,15 +1,36 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Search, X } from "lucide-react";
+import { useState } from "react";
 import darkTexture from "@/assets/dark-texture.jpg";
 
 const Menu = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const categories = [
+    { id: "tapas", label: "TAPAS" },
+    { id: "raciones", label: "RACIONES" },
+    { id: "ensaladas", label: "ENSALADAS" },
+    { id: "montaditos", label: "MONTADITOS" },
+    { id: "bocadillos", label: "BOCADILLOS" },
+    { id: "arroces", label: "ARROCES" },
+    { id: "pescados", label: "PESCADOS" },
+    { id: "carnes", label: "CARNES" },
+    { id: "postres", label: "POSTRES" },
+    { id: "bebidas", label: "BEBIDAS" },
+    { id: "menus-grupo", label: "MENÚS" },
+  ];
+
   // Smooth scroll behavior for anchor links
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const element = document.getElementById(targetId.replace('#', ''));
     if (element) {
-      const offset = 100; // Account for sticky nav
+      const offset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       
@@ -18,6 +39,37 @@ const Menu = () => {
         behavior: 'smooth'
       });
     }
+  };
+
+  const handleCategoryClick = (categoryId: string) => {
+    if (activeCategory === categoryId) {
+      setActiveCategory(null);
+    } else {
+      setActiveCategory(categoryId);
+      const element = document.getElementById(categoryId);
+      if (element) {
+        const offset = 180;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
+  const shouldShowSection = (sectionId: string, content: string) => {
+    // Si hay categoría activa, solo mostrar esa
+    if (activeCategory && activeCategory !== sectionId) return false;
+    
+    // Si hay búsqueda, filtrar por contenido
+    if (searchTerm) {
+      return content.toLowerCase().includes(searchTerm.toLowerCase());
+    }
+    
+    return true;
   };
 
   return (
@@ -34,13 +86,69 @@ const Menu = () => {
       >
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: 'serif' }}>
               LA TABERNA
             </h1>
             <h2 className="text-3xl md:text-4xl text-[#E89B3C] mb-8" style={{ fontFamily: 'serif' }}>
               Menú
             </h2>
+          </div>
+
+          {/* Search Bar */}
+          <div className="mb-8 max-w-2xl mx-auto">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={20} />
+              <Input
+                type="text"
+                placeholder="Buscar platos..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 pr-10 bg-white/90 backdrop-blur-sm border-border text-black placeholder:text-gray-500"
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm("")}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                >
+                  <X size={20} />
+                </button>
+              )}
+            </div>
+            {searchTerm && (
+              <p className="text-white/70 text-sm mt-2">
+                Buscando: "{searchTerm}"
+              </p>
+            )}
+          </div>
+
+          {/* Category Filters */}
+          <div className="mb-8">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {categories.map((category) => (
+                <Badge
+                  key={category.id}
+                  variant={activeCategory === category.id ? "default" : "outline"}
+                  className={`cursor-pointer px-4 py-2 text-sm transition-all ${
+                    activeCategory === category.id
+                      ? "bg-[#E89B3C] text-black hover:bg-[#E89B3C]/80 border-[#E89B3C]"
+                      : "bg-white/10 text-white hover:bg-white/20 border-white/30"
+                  }`}
+                  onClick={() => handleCategoryClick(category.id)}
+                >
+                  {category.label}
+                </Badge>
+              ))}
+              {activeCategory && (
+                <Badge
+                  variant="outline"
+                  className="cursor-pointer px-4 py-2 text-sm bg-red-500/20 text-white hover:bg-red-500/30 border-red-500/50"
+                  onClick={() => setActiveCategory(null)}
+                >
+                  <X size={16} className="mr-1" /> Limpiar
+                </Badge>
+              )}
+            </div>
           </div>
 
           {/* Sticky Navigation */}
@@ -61,6 +169,7 @@ const Menu = () => {
           </div>
 
           {/* TAPAS */}
+          {shouldShowSection("tapas", "MAGRO CON TOMATE ENSALADILLA RUSA ENSALADA DE PIMIENTOS ENSALADA DE ROQUEFORT AGRITOS CON ALIOLI AGRIOS DE BACALAO CHAMPIÑONES PLANCHA PATATAS ALIOLI CHORIZO CRIOLLO") && (
           <div id="tapas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Tapas</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -82,8 +191,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* RACIONES */}
+          {shouldShowSection("raciones", "EMPANADA ARGENTINA CROQUETAS JAMÓN CROQUETAS BACALAO PAN TOMATE ALIOLI BRAVAS QUESO FRITO QUESO RULO PLANCHA QUESO CURADO NUECES JAMÓN JAMÓN QUESO HUEVOS ROTOS JAMÓN CALAMARES GAMBAS CHIPIRONES PLANCHA FRITA BOQUERONES PATAS TORREZNOS SORIA PARRILLADA VERDURAS") && (
           <div id="raciones" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Raciones</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -115,8 +226,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* ENSALADAS */}
+          {shouldShowSection("ensaladas", "CASA TOMATE TRINCHADO CAPELLÁN SALADOS") && (
           <div id="ensaladas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Ensaladas</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -132,8 +245,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* MONTADITOS */}
+          {shouldShowSection("montaditos", "TABERNERO SERRANITO BLANCO NEGRO MEDIA VERBENA VERBENA carne lomo queso cabra pimiento verde cebolla caramelizada jamón ibérico salchicha morcilla") && (
           <div id="montaditos" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Montaditos</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -151,8 +266,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* BOCADILLOS */}
+          {shouldShowSection("bocadillos", "LARA TABERNERO SERRANITO CALAMARES PEPITO INDAR GORRI pollo crujiente bacon huevo cebolla caramelizada rulo queso cabra lomo pimiento jamón ibérico pimiento piquillo queso manchego") && (
           <div id="bocadillos" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Bocadillos</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -182,8 +299,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* ARROCES */}
+          {shouldShowSection("arroces", "BANDA SEÑORET ARROZ SOLOMILLO VERDURAS GAZPACHO MANCHEGO") && (
           <div id="arroces" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Arroces</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -197,8 +316,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* PESCADOS */}
+          {shouldShowSection("pescados", "GAMBAS ROJAS AJILLO GAMBAS PLANCHA FRITURA PULPO PLANCHA CALAMAR NACIONAL") && (
           <div id="pescados" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Pescados</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -211,8 +332,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* CARNES */}
+          {shouldShowSection("carnes", "ASADO CHURRASCOS TERNERA ENTRAÑA TERNERA ARGENTINO MILANESA NAPOLITANA MILANESA CABALLO SOLOMILLO CERDO ENTRECOT ASTURIAS filete empanado tomate jamón york mozzarella") && (
           <div id="carnes" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Carnes</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -227,8 +350,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* POSTRES */}
+          {shouldShowSection("postres", "FLAN HUEVO CASERO PAN CALATRAVA TARTA QUESO TARTA CHOCOLATE TARTA OREO TARTA FERRERO TABLA POSTRES") && (
           <div id="postres" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Postres</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -245,8 +370,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* BEBIDAS - Refrescos */}
+          {shouldShowSection("bebidas", "COCA-COO AGUA GAS REFRESCOS NESTEA SPRITE TÓNICA SCHWEPPES BITTER KAS RED BULL ZUMOS CERVEZAS ÁGUILA AMSTEL RADLER HEINEKEN VINOS BLANCO ROSADO RIOJA MALBEC ARGENTINO RIBERA MOSCATEL VERMUTH") && (
           <div id="bebidas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Bebidas</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -300,8 +427,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* MENÚS DE GRUPO */}
+          {shouldShowSection("menus-grupo", "MENÚ GRUPOS ENSALADILLA RUSA QUESO FRITO JAMÓN IBÉRICO CALAMARES ANDALUZA SOLOMILLO CERDO ARROZ BANDA SEÑORET PATATAS BRAVAS PAN TOMATE ALIOLI GAMBAS ROJAS PULPO PLANCHA ENTRECOT ASTURIAS CROQUETAS CASERAS SEPIA FRITURA PESCADOS HUEVOS ROTOS VERBENA MONTADITOS ALBÓNDIGAS ROQUEFORT RULO PLANCHA TORREZNOS SORIA CAZÓN ADOBO CHIPIRONES PICOTEO ARGENTINO EMPANADA CHORIZO CRIOLLO ENTRAÑA ASADO TERNERA CHURRASCO") && (
           <div id="menus-grupo" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Menús de Grupos</h3>
             <div className="bg-white p-6 rounded-lg shadow-lg text-center mb-6">
@@ -414,8 +543,10 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
 
           {/* SUGERENCIAS */}
+          {(!activeCategory || !searchTerm) && (
           <div className="bg-white p-8 rounded-lg shadow-lg text-center">
             <h3 className="text-3xl font-bold text-black mb-6" style={{ fontFamily: 'serif' }}>SUGERENCIAS LA TABERNA</h3>
             <div className="text-black space-y-4">
@@ -444,6 +575,7 @@ const Menu = () => {
               </div>
             </div>
           </div>
+          )}
         </div>
       </main>
 
