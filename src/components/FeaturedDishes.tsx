@@ -19,11 +19,6 @@ const imageMap: Record<string, string> = {
   "Croquetas caseras": plato6,
   "Tapas Variadas": plato7,
   "Empanadillas": plato8,
-  "Jamón Ibérico con Queso y Nueces": plato2,
-  "Entrecot con Verduras": plato4,
-  "Huevos Rotos con Jamón": plato6,
-  "Tabla de Jamón y Queso": plato2,
-  "Chuletón a la Parrilla": plato4,
 };
 
 export const FeaturedDishes = () => {
