@@ -49,7 +49,7 @@ export const FeaturedDishes = () => {
   });
 
   return (
-    <section className="py-20">
+    <section id="destacados" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Platos Destacados</h2>
@@ -60,7 +60,7 @@ export const FeaturedDishes = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {dishes?.map((dish) => (
-            <Card key={dish.id} className="overflow-hidden bg-gradient-card border-border hover:border-primary transition-colors">
+            <Card key={dish.id} className="overflow-hidden bg-card border-border hover:border-primary transition-colors">
               <div className="h-48 overflow-hidden">
                 <img
                   src={imageMap[dish.name] || dish.image_url || ""}
