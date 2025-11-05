@@ -8,28 +8,12 @@ import calamarImg from "@/assets/calamar.jpg";
 import darkTexture from "@/assets/dark-texture.jpg";
 
 const imageMap: Record<string, string> = {
-  "Patatas Bravas": patapasBravasImg,
-  "Jamón Ibérico con Queso Curado": jamonQuesoImg,
-  "Arroz del Señoret": arrozImg,
-  "Entraña Argentina": entranaImg,
+  "Arroz": arrozImg,
+  "Jamón ibérico con queso": jamonQuesoImg,
   "Calamar Nacional": calamarImg,
-};
-
-const allergenLabels: Record<string, string> = {
-  gluten: "Gluten",
-  crustaceans: "Crustáceos",
-  eggs: "Huevos",
-  fish: "Pescado",
-  peanuts: "Cacahuetes",
-  soy: "Soja",
-  dairy: "Lácteos",
-  nuts: "Frutos secos",
-  celery: "Apio",
-  mustard: "Mostaza",
-  sesame: "Sésamo",
-  sulfites: "Sulfitos",
-  lupin: "Altramuces",
-  molluscs: "Moluscos",
+  "Entraña Argentina": entranaImg,
+  "Calamares mixtos": calamarImg,
+  "Croquetas caseras": patapasBravasImg,
 };
 
 export const FeaturedDishes = () => {
@@ -57,27 +41,27 @@ export const FeaturedDishes = () => {
         backgroundPosition: 'center',
       }}
     >
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Platos Destacados</h2>
-          <p className="text-lg text-gray-300 max-w-2xl">
+          <p className="text-lg text-gray-300 max-w-3xl">
             Descubre nuestros platos destacados: auténticos, deliciosos y preparados con amor.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
           {dishes?.map((dish) => (
-            <div key={dish.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-48 overflow-hidden">
+            <div key={dish.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-40 overflow-hidden">
                 <img
                   src={imageMap[dish.name] || dish.image_url || ""}
                   alt={dish.name}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900">{dish.name}</h3>
+                <h3 className="text-base font-normal text-gray-900">{dish.name}</h3>
               </div>
             </div>
           ))}

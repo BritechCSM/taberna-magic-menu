@@ -16,9 +16,9 @@ export const Hero = () => {
         <img
           src={heroImage}
           alt="Deliciosa comida"
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/60 to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
       </div>
 
       {/* Content */}
