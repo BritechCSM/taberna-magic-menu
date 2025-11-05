@@ -17,8 +17,8 @@ All colors MUST be HSL.
     --popover: 195 20% 20%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 28 85% 55%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 195 20% 15%;
 
     --secondary: 195 20% 25%;
     --secondary-foreground: 0 0% 100%;
@@ -26,19 +26,22 @@ All colors MUST be HSL.
     --muted: 195 15% 30%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 28 85% 55%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 195 20% 15%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 195 15% 25%;
     --input: 195 15% 25%;
-    --ring: 28 85% 55%;
+    --ring: 0 0% 100%;
 
     --radius: 0.5rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(28 85% 55%) 0%, hsl(28 85% 45%) 100%);
+    --menu-button: 28 85% 55%;
+    --menu-button-foreground: 0 0% 0%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(195 20% 20%) 0%, hsl(195 20% 15%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(195 20% 20%) 0%, hsl(195 20% 15%) 100%);
   }
 

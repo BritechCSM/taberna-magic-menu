@@ -41,13 +41,16 @@ export const Navigation = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-foreground hover:text-primary transition-colors text-lg"
+                className="text-foreground hover:text-foreground/80 transition-colors text-lg"
               >
                 {link.label}
               </a>
             ))}
             <Link to="/menu">
-              <Button variant="outline" className="rounded-full border-2 px-8 py-5 text-lg">
+              <Button 
+                variant="outline" 
+                className="rounded-full border-2 px-8 py-5 text-lg bg-[hsl(28,85%,55%)] text-black border-[hsl(28,85%,55%)] hover:bg-[hsl(28,85%,45%)] hover:border-[hsl(28,85%,45%)]"
+              >
                 Tu menú
               </Button>
             </Link>
@@ -70,13 +73,16 @@ export const Navigation = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="block text-foreground hover:text-primary transition-colors"
+                className="block text-foreground hover:text-foreground/80 transition-colors"
               >
                 {link.label}
               </a>
             ))}
             <Link to="/menu" onClick={() => setIsOpen(false)}>
-              <Button variant="outline" className="w-full rounded-full">
+              <Button 
+                variant="outline" 
+                className="w-full rounded-full bg-[hsl(28,85%,55%)] text-black border-[hsl(28,85%,55%)] hover:bg-[hsl(28,85%,45%)] hover:border-[hsl(28,85%,45%)]"
+              >
                 Tu menú
               </Button>
             </Link>

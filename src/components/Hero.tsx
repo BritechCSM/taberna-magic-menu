@@ -30,7 +30,7 @@ export const Hero = () => {
         </h1>
         <Button
           onClick={scrollToMenu}
-          className="mt-8 bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 rounded-full shadow-lg smooth-transition hover:scale-105"
+          className="mt-8 bg-white text-black hover:bg-white/90 text-lg px-8 py-6 rounded-full shadow-lg transition-all hover:scale-105"
         >
           Ver menú
         </Button>

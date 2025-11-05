@@ -74,7 +74,7 @@ export const FeaturedDishes = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-primary">{dish.price}€</span>
+                  <span className="text-2xl font-bold text-foreground">{dish.price}€</span>
                   <div className="flex flex-wrap gap-1">
                     {dish.allergens?.map((allergen: string) => (
                       <Badge key={allergen} variant="secondary" className="text-xs">
