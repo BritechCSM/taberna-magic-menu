@@ -1,38 +1,28 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import patapasBravasImg from "@/assets/patatas-bravas.jpg";
-import jamonQuesoImg from "@/assets/jamon-queso.jpg";
-import arrozImg from "@/assets/arroz.jpg";
-import entranaImg from "@/assets/entrana.jpg";
-import calamarImg from "@/assets/calamar.jpg";
+import plato1 from "@/assets/plato-1.png";
+import plato2 from "@/assets/plato-2.png";
+import plato3 from "@/assets/plato-3.png";
+import plato4 from "@/assets/plato-4.png";
+import plato5 from "@/assets/plato-5.png";
+import plato6 from "@/assets/plato-6.png";
+import plato7 from "@/assets/plato-7.png";
+import plato8 from "@/assets/plato-8.png";
 import restaurantInterior from "@/assets/restaurant-interior.jpg";
 import heroImage from "@/assets/hero-food.jpg";
-import tapasVariadasImg from "@/assets/tapas-variadas.jpg";
-import empanadillasImg from "@/assets/empanadillas.jpg";
-import jamonQuesoNuecesImg from "@/assets/jamon-queso-nueces.jpg";
-import entrecotVerdurasImg from "@/assets/entrecot-verduras.jpg";
-import croquetasImg from "@/assets/croquetas.jpg";
-import huevosJamonImg from "@/assets/huevos-jamon.jpg";
-import tablaJamonQuesoImg from "@/assets/tabla-jamon-queso.jpg";
-import chuletonPatatasImg from "@/assets/chuleton-patatas.jpg";
 
 const Gallery = () => {
   const images = [
-    { src: tapasVariadasImg, alt: "Tapas Variadas - Jamón, Queso, Croquetas y más" },
-    { src: empanadillasImg, alt: "Empanadillas Caseras Crujientes" },
-    { src: jamonQuesoNuecesImg, alt: "Tabla de Jamón Ibérico con Queso y Nueces" },
-    { src: entrecotVerdurasImg, alt: "Entrecot con Verduras Asadas" },
-    { src: croquetasImg, alt: "Croquetas Caseras con Alioli" },
-    { src: huevosJamonImg, alt: "Huevos Rotos con Jamón Ibérico" },
-    { src: tablaJamonQuesoImg, alt: "Tabla de Jamón Ibérico con Queso" },
-    { src: chuletonPatatasImg, alt: "Chuletón a la Parrilla con Patatas" },
+    { src: plato7, alt: "Tapas Variadas - Jamón, Queso, Croquetas y más" },
+    { src: plato8, alt: "Empanadillas Caseras Crujientes" },
+    { src: plato2, alt: "Tabla de Jamón Ibérico con Queso y Nueces" },
+    { src: plato4, alt: "Entrecot con Verduras Asadas" },
+    { src: plato6, alt: "Croquetas Caseras con Alioli" },
+    { src: plato1, alt: "Arroz del Señoret" },
+    { src: plato3, alt: "Calamar Nacional" },
+    { src: plato5, alt: "Calamares Mixtos" },
     { src: heroImage, alt: "Gambas a la Parrilla" },
     { src: restaurantInterior, alt: "Interior del Restaurante" },
-    { src: patapasBravasImg, alt: "Patatas Bravas" },
-    { src: jamonQuesoImg, alt: "Jamón Ibérico con Queso" },
-    { src: arrozImg, alt: "Arroz del Señoret" },
-    { src: entranaImg, alt: "Entraña Argentina" },
-    { src: calamarImg, alt: "Calamar Nacional" },
   ];
 
   return (
