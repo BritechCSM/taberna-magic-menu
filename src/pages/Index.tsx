@@ -10,8 +10,20 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
+      
+      {/* Separador blanco */}
+      <div className="h-20 bg-white"></div>
+      
       <About />
+      
+      {/* Separador blanco */}
+      <div className="h-20 bg-white"></div>
+      
       <FeaturedDishes />
+      
+      {/* Separador blanco */}
+      <div className="h-20 bg-white"></div>
+      
       <Footer />
       <WhatsAppButton />
     </div>

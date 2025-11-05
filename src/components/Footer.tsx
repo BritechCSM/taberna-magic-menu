@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="bg-card text-foreground py-16 border-t border-border">
+    <footer className="bg-black text-white py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Contact Info */}
@@ -48,7 +48,7 @@ export const Footer = () => {
           {/* About */}
           <div>
             <h3 className="text-2xl font-bold mb-6">La Taberna</h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               Cocina tradicional española con los mejores ingredientes. 
               Ven a disfrutar de una experiencia gastronómica única en un 
               ambiente acogedor y familiar.
@@ -56,8 +56,8 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-12 pt-8 text-center">
-          <p className="text-muted-foreground">
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
+          <p className="text-gray-400">
             © {new Date().getFullYear()} La Taberna. Todos los derechos reservados.
           </p>
         </div>
