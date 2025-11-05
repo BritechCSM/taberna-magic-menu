@@ -4,6 +4,22 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import darkTexture from "@/assets/dark-texture.jpg";
 
 const Menu = () => {
+  // Smooth scroll behavior for anchor links
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId.replace('#', ''));
+    if (element) {
+      const offset = 100; // Account for sticky nav
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -27,25 +43,25 @@ const Menu = () => {
             </h2>
           </div>
 
-          {/* Menu Sections Navigation */}
-          <div className="text-white space-y-4 max-w-md mb-16">
-            <div className="text-2xl md:text-3xl font-bold space-y-4" style={{ fontFamily: 'serif' }}>
-              <p>RACIONES</p>
-              <p>TAPAS</p>
-              <p>ENSALADAS</p>
-              <p>MONTADITOS</p>
-              <p>BOCADILLOS</p>
-              <p>ARROCES</p>
-              <p>PESCADOS</p>
-              <p>CARNES</p>
-              <p>POSTRES</p>
-              <p>BEBIDAS</p>
-              <p>MENÚS DE GRUPO</p>
-            </div>
+          {/* Sticky Navigation */}
+          <div className="sticky top-20 z-20 bg-[#195 20% 15%]/95 backdrop-blur-sm py-4 mb-8 rounded-lg border border-[#E89B3C]/30">
+            <nav className="flex flex-wrap justify-center gap-3 px-4">
+              <a href="#tapas" onClick={(e) => handleScroll(e, '#tapas')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">TAPAS</a>
+              <a href="#raciones" onClick={(e) => handleScroll(e, '#raciones')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">RACIONES</a>
+              <a href="#ensaladas" onClick={(e) => handleScroll(e, '#ensaladas')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">ENSALADAS</a>
+              <a href="#montaditos" onClick={(e) => handleScroll(e, '#montaditos')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">MONTADITOS</a>
+              <a href="#bocadillos" onClick={(e) => handleScroll(e, '#bocadillos')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">BOCADILLOS</a>
+              <a href="#arroces" onClick={(e) => handleScroll(e, '#arroces')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">ARROCES</a>
+              <a href="#pescados" onClick={(e) => handleScroll(e, '#pescados')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">PESCADOS</a>
+              <a href="#carnes" onClick={(e) => handleScroll(e, '#carnes')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">CARNES</a>
+              <a href="#postres" onClick={(e) => handleScroll(e, '#postres')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">POSTRES</a>
+              <a href="#bebidas" onClick={(e) => handleScroll(e, '#bebidas')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">BEBIDAS</a>
+              <a href="#menus-grupo" onClick={(e) => handleScroll(e, '#menus-grupo')} className="px-4 py-2 bg-[#E89B3C] hover:bg-[#E89B3C]/80 text-black font-semibold rounded-lg transition-colors text-sm">MENÚS</a>
+            </nav>
           </div>
 
           {/* TAPAS */}
-          <div className="mb-12">
+          <div id="tapas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Tapas</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <div className="grid grid-cols-3 gap-2 mb-4 text-black font-bold">
@@ -68,7 +84,7 @@ const Menu = () => {
           </div>
 
           {/* RACIONES */}
-          <div className="mb-12">
+          <div id="raciones" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Raciones</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <div className="grid grid-cols-3 gap-2 mb-4 text-black font-bold">
@@ -101,7 +117,7 @@ const Menu = () => {
           </div>
 
           {/* ENSALADAS */}
-          <div className="mb-12">
+          <div id="ensaladas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Ensaladas</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <div className="grid grid-cols-3 gap-2 mb-4 text-black font-bold">
@@ -118,7 +134,7 @@ const Menu = () => {
           </div>
 
           {/* MONTADITOS */}
-          <div className="mb-12">
+          <div id="montaditos" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Montaditos</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <div className="space-y-2 text-black">
@@ -137,7 +153,7 @@ const Menu = () => {
           </div>
 
           {/* BOCADILLOS */}
-          <div className="mb-12">
+          <div id="bocadillos" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Bocadillos</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <div className="space-y-3 text-black">
@@ -168,7 +184,7 @@ const Menu = () => {
           </div>
 
           {/* ARROCES */}
-          <div className="mb-12">
+          <div id="arroces" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Arroces</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <p className="text-black mb-4 font-semibold">(mínimo 2 personas)</p>
@@ -183,7 +199,7 @@ const Menu = () => {
           </div>
 
           {/* PESCADOS */}
-          <div className="mb-12">
+          <div id="pescados" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Pescados</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <div className="space-y-2 text-black">
@@ -197,7 +213,7 @@ const Menu = () => {
           </div>
 
           {/* CARNES */}
-          <div className="mb-12">
+          <div id="carnes" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Carnes</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <div className="space-y-2 text-black">
@@ -213,7 +229,7 @@ const Menu = () => {
           </div>
 
           {/* POSTRES */}
-          <div className="mb-12">
+          <div id="postres" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Postres</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg">
               <div className="space-y-2 text-black">
@@ -231,7 +247,7 @@ const Menu = () => {
           </div>
 
           {/* BEBIDAS - Refrescos */}
-          <div className="mb-12">
+          <div id="bebidas" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Bebidas</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-[#E89B3C] p-6 rounded-lg">
@@ -286,7 +302,7 @@ const Menu = () => {
           </div>
 
           {/* MENÚS DE GRUPO */}
-          <div className="mb-12">
+          <div id="menus-grupo" className="mb-12 scroll-mt-32">
             <h3 className="text-3xl font-bold text-[#E89B3C] mb-6" style={{ fontFamily: 'serif' }}>Menús de Grupos</h3>
             <div className="bg-[#E89B3C] p-6 rounded-lg text-center mb-6">
               <h2 className="text-2xl font-bold text-black mb-2">MÍNIMO 4 PERSONAS PRECIO POR PERSONA</h2>
