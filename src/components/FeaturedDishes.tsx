@@ -1,29 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import darkTexture from "@/assets/dark-texture.jpg";
-import plato1 from "@/assets/plato-1.png";
-import plato2 from "@/assets/plato-2.png";
-import plato3 from "@/assets/plato-3.png";
-import plato4 from "@/assets/plato-4.png";
-import plato5 from "@/assets/plato-5.png";
-import plato6 from "@/assets/plato-6.png";
+import jamonIberico from "@/assets/jamon-iberico-queso.png";
+import entranaArgentina from "@/assets/entrana-argentina.png";
+import patatasBravas from "@/assets/patatas-bravas.jpeg";
+import arroces from "@/assets/arroces.jpeg";
+import calamar from "@/assets/calamar.jpeg";
+import quesoFrito from "@/assets/queso-frito.jpg";
 import plato7 from "@/assets/plato-7.png";
 import plato8 from "@/assets/plato-8.png";
 
 const imageMap: Record<string, string> = {
-  "Arroz": plato1,
-  "Arroces": plato1,
-  "Patatas bravas": plato2,
-  "Jamón ibérico con queso": plato3,
-  "Jamón ibérico con queso curado": plato3,
-  "Calamar nacional": plato4,
-  "Calamar Nacional": plato4,
-  "Entraña argentina": plato5,
-  "Entraña Argentina": plato5,
-  "Queso frito con mermelada de tomate": plato6,
-  "Queso frito": plato6,
-  "Calamares mixtos": plato4,
-  "Croquetas caseras": plato6,
+  "Arroz": arroces,
+  "Arroces": arroces,
+  "Patatas bravas": patatasBravas,
+  "Jamón ibérico con queso": jamonIberico,
+  "Jamón ibérico con queso curado": jamonIberico,
+  "Calamar nacional": calamar,
+  "Calamar Nacional": calamar,
+  "Entraña argentina": entranaArgentina,
+  "Entraña Argentina": entranaArgentina,
+  "Queso frito con mermelada de tomate": quesoFrito,
+  "Queso frito": quesoFrito,
+  "Calamares mixtos": calamar,
+  "Croquetas caseras": quesoFrito,
   "Tapas Variadas": plato7,
   "Empanadillas": plato8,
 };
