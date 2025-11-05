@@ -18,7 +18,7 @@ export const Hero = () => {
           alt="Deliciosa comida"
           className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/15 to-black/20" />
       </div>
 
       {/* Content */}
