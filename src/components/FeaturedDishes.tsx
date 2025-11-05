@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import patapasBravasImg from "@/assets/patatas-bravas.jpg";
 import jamonQuesoImg from "@/assets/jamon-queso.jpg";
 import arrozImg from "@/assets/arroz.jpg";
 import entranaImg from "@/assets/entrana.jpg";
 import calamarImg from "@/assets/calamar.jpg";
+import darkTexture from "@/assets/dark-texture.jpg";
 
 const imageMap: Record<string, string> = {
   "Patatas Bravas": patapasBravasImg,
@@ -49,18 +48,27 @@ export const FeaturedDishes = () => {
   });
 
   return (
-    <section id="destacados" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Platos Destacados</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+    <section 
+      id="destacados" 
+      className="py-20 relative"
+      style={{
+        backgroundImage: `url(${darkTexture})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Platos Destacados</h2>
+          <p className="text-lg text-gray-300 max-w-2xl">
             Descubre nuestros platos destacados: auténticos, deliciosos y preparados con amor.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {dishes?.map((dish) => (
-            <Card key={dish.id} className="overflow-hidden bg-card border-border hover:border-primary transition-colors">
+            <div key={dish.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="h-48 overflow-hidden">
                 <img
                   src={imageMap[dish.name] || dish.image_url || ""}
@@ -68,23 +76,10 @@ export const FeaturedDishes = () => {
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl">{dish.name}</CardTitle>
-                <CardDescription>{dish.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-foreground">{dish.price}€</span>
-                  <div className="flex flex-wrap gap-1">
-                    {dish.allergens?.map((allergen: string) => (
-                      <Badge key={allergen} variant="secondary" className="text-xs">
-                        {allergenLabels[allergen]}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-gray-900">{dish.name}</h3>
+              </div>
+            </div>
           ))}
         </div>
       </div>
