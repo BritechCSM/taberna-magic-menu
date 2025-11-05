@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import logo from "@/assets/logo.png";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -90,10 +91,11 @@ const Auth = () => {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md bg-gradient-card border-border">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold">
-            <span className="text-primary">La Taberna</span> de Lara
-          </CardTitle>
-          <CardDescription>Panel de Administración</CardDescription>
+          <div className="flex justify-center mb-4">
+            <img src={logo} alt="La Taberna de Lara" className="h-20 w-auto" />
+          </div>
+          <CardTitle className="text-2xl font-bold">Panel de Administración</CardTitle>
+          <CardDescription>La Taberna de Lara</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="signin" className="w-full">

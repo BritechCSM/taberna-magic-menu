@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MenuItemsManager } from "@/components/admin/MenuItemsManager";
 import { CategoriesManager } from "@/components/admin/CategoriesManager";
+import logo from "@/assets/logo.png";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -71,9 +72,12 @@ const AdminDashboard = () => {
     <div className="min-h-screen bg-background">
       <div className="border-b border-border">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">
-            Panel de <span className="text-primary">Administración</span>
-          </h1>
+          <div className="flex items-center space-x-4">
+            <img src={logo} alt="La Taberna de Lara" className="h-10 w-auto" />
+            <h1 className="text-2xl font-bold">
+              Panel de <span className="text-primary">Administración</span>
+            </h1>
+          </div>
           <Button variant="outline" onClick={handleSignOut}>
             Cerrar Sesión
           </Button>
