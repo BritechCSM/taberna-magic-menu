@@ -6,6 +6,14 @@ import arrozImg from "@/assets/arroz.jpg";
 import entranaImg from "@/assets/entrana.jpg";
 import calamarImg from "@/assets/calamar.jpg";
 import darkTexture from "@/assets/dark-texture.jpg";
+import tapasVariadasImg from "@/assets/tapas-variadas.jpg";
+import empanadillasImg from "@/assets/empanadillas.jpg";
+import jamonQuesoNuecesImg from "@/assets/jamon-queso-nueces.jpg";
+import entrecotVerdurasImg from "@/assets/entrecot-verduras.jpg";
+import croquetasImg from "@/assets/croquetas.jpg";
+import huevosJamonImg from "@/assets/huevos-jamon.jpg";
+import tablaJamonQuesoImg from "@/assets/tabla-jamon-queso.jpg";
+import chuletonPatatasImg from "@/assets/chuleton-patatas.jpg";
 
 const imageMap: Record<string, string> = {
   "Arroz": arrozImg,
@@ -13,7 +21,14 @@ const imageMap: Record<string, string> = {
   "Calamar Nacional": calamarImg,
   "Entraña Argentina": entranaImg,
   "Calamares mixtos": calamarImg,
-  "Croquetas caseras": patapasBravasImg,
+  "Croquetas caseras": croquetasImg,
+  "Tapas Variadas": tapasVariadasImg,
+  "Empanadillas": empanadillasImg,
+  "Jamón Ibérico con Queso y Nueces": jamonQuesoNuecesImg,
+  "Entrecot con Verduras": entrecotVerdurasImg,
+  "Huevos Rotos con Jamón": huevosJamonImg,
+  "Tabla de Jamón y Queso": tablaJamonQuesoImg,
+  "Chuletón a la Parrilla": chuletonPatatasImg,
 };
 
 export const FeaturedDishes = () => {

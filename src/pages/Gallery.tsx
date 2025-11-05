@@ -7,11 +7,27 @@ import entranaImg from "@/assets/entrana.jpg";
 import calamarImg from "@/assets/calamar.jpg";
 import restaurantInterior from "@/assets/restaurant-interior.jpg";
 import heroImage from "@/assets/hero-food.jpg";
+import tapasVariadasImg from "@/assets/tapas-variadas.jpg";
+import empanadillasImg from "@/assets/empanadillas.jpg";
+import jamonQuesoNuecesImg from "@/assets/jamon-queso-nueces.jpg";
+import entrecotVerdurasImg from "@/assets/entrecot-verduras.jpg";
+import croquetasImg from "@/assets/croquetas.jpg";
+import huevosJamonImg from "@/assets/huevos-jamon.jpg";
+import tablaJamonQuesoImg from "@/assets/tabla-jamon-queso.jpg";
+import chuletonPatatasImg from "@/assets/chuleton-patatas.jpg";
 
 const Gallery = () => {
   const images = [
-    { src: heroImage, alt: "Gambas a la parrilla" },
-    { src: restaurantInterior, alt: "Interior del restaurante" },
+    { src: tapasVariadasImg, alt: "Tapas Variadas - Jamón, Queso, Croquetas y más" },
+    { src: empanadillasImg, alt: "Empanadillas Caseras Crujientes" },
+    { src: jamonQuesoNuecesImg, alt: "Tabla de Jamón Ibérico con Queso y Nueces" },
+    { src: entrecotVerdurasImg, alt: "Entrecot con Verduras Asadas" },
+    { src: croquetasImg, alt: "Croquetas Caseras con Alioli" },
+    { src: huevosJamonImg, alt: "Huevos Rotos con Jamón Ibérico" },
+    { src: tablaJamonQuesoImg, alt: "Tabla de Jamón Ibérico con Queso" },
+    { src: chuletonPatatasImg, alt: "Chuletón a la Parrilla con Patatas" },
+    { src: heroImage, alt: "Gambas a la Parrilla" },
+    { src: restaurantInterior, alt: "Interior del Restaurante" },
     { src: patapasBravasImg, alt: "Patatas Bravas" },
     { src: jamonQuesoImg, alt: "Jamón Ibérico con Queso" },
     { src: arrozImg, alt: "Arroz del Señoret" },
