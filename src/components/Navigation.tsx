@@ -11,7 +11,7 @@ export const Navigation = () => {
   const navLinks = [
     { href: "/", label: "Inicio" },
     { href: "/#destacados", label: "Destacados" },
-    { href: "/#menu", label: "Menú" },
+    { href: "/menu", label: "Menú" },
     { href: "/#galeria", label: "Galería" },
   ];
 
@@ -23,8 +23,8 @@ export const Navigation = () => {
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-      setIsOpen(false);
     }
+    setIsOpen(false);
   };
 
   return (
@@ -36,16 +36,16 @@ export const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="hidden md:flex items-center justify-center flex-1 space-x-12">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="text-foreground hover:text-foreground/80 transition-colors text-lg"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -62,14 +62,14 @@ export const Navigation = () => {
         {isOpen && (
           <div className="md:hidden pb-4 space-y-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="block text-foreground hover:text-foreground/80 transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         )}

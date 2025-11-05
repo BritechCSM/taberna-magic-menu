@@ -8,6 +8,7 @@ import Menu from "./pages/Menu";
 import Gallery from "./pages/Gallery";
 import Auth from "./pages/Auth";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminSetup from "./pages/AdminSetup";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/galeria" element={<Gallery />} />
           <Route path="/admin" element={<Auth />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/setup" element={<AdminSetup />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
