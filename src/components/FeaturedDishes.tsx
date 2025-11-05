@@ -6,7 +6,7 @@ import entranaArgentina from "@/assets/entrana-argentina.png";
 import patatasBravas from "@/assets/patatas-bravas.jpeg";
 import arroces from "@/assets/arroces.jpeg";
 import calamar from "@/assets/calamar.jpeg";
-import quesoFrito from "@/assets/queso-frito-nuevo.png";
+import quesoFrito from "@/assets/queso-frito-nuevo.jpg";
 import croquetasCaseras from "@/assets/croquetas-caseras.jpg";
 import plato7 from "@/assets/plato-7.png";
 import plato8 from "@/assets/plato-8.png";
