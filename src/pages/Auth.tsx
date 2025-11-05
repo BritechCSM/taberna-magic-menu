@@ -65,8 +65,8 @@ const Auth = () => {
 
       if (error) {
         toast({
-          title: "Error",
-          description: error.message,
+          title: "Error de autenticación",
+          description: "Email o contraseña incorrectos",
           variant: "destructive",
         });
       } else {
@@ -114,8 +114,8 @@ const Auth = () => {
 
       if (error) {
         toast({
-          title: "Error",
-          description: error.message,
+          title: "Error de registro",
+          description: "No se pudo crear la cuenta. Intenta con otro email.",
           variant: "destructive",
         });
       } else {
