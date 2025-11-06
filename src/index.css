@@ -8,32 +8,32 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 195 20% 15%;
+    --background: 200 30% 12%;
     --foreground: 0 0% 100%;
 
-    --card: 195 20% 20%;
+    --card: 200 25% 16%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 195 20% 20%;
+    --popover: 200 25% 16%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 0 0% 100%;
-    --primary-foreground: 195 20% 15%;
+    --primary-foreground: 200 30% 12%;
 
-    --secondary: 195 20% 25%;
+    --secondary: 200 25% 20%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 195 15% 30%;
+    --muted: 200 20% 25%;
     --muted-foreground: 0 0% 70%;
 
     --accent: 0 0% 100%;
-    --accent-foreground: 195 20% 15%;
+    --accent-foreground: 200 30% 12%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 195 15% 25%;
-    --input: 195 15% 25%;
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
     --ring: 0 0% 100%;
 
     --radius: 0.5rem;
@@ -41,8 +41,8 @@ All colors MUST be HSL.
     --menu-button: 28 85% 55%;
     --menu-button-foreground: 0 0% 0%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(195 20% 20%) 0%, hsl(195 20% 15%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(195 20% 20%) 0%, hsl(195 20% 15%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(200 30% 16%) 0%, hsl(200 30% 12%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(200 25% 16%) 0%, hsl(200 30% 12%) 100%);
     
     --accent-yellow: 45 100% 51%;
     --accent-orange: 30 100% 55%;

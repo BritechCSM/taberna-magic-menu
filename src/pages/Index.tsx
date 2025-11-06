@@ -9,25 +9,25 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Decorative background blocks - White on dark */}
+      {/* Decorative floating elements - Yumix style */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Top left white block */}
-        <div className="absolute -top-60 -left-60 w-[1400px] h-[1200px] bg-white/5 blur-[80px]"></div>
+        {/* Small orange circles - top area */}
+        <div className="absolute top-20 right-[15%] w-8 h-8 rounded-full bg-[#ff8c42] opacity-80"></div>
+        <div className="absolute top-32 right-[25%] w-6 h-6 rounded-full bg-[#ff6b35] opacity-70"></div>
+        <div className="absolute top-[15%] right-[8%] w-10 h-10 rounded-full bg-[#ffa500] opacity-60"></div>
         
-        {/* Top right white block */}
-        <div className="absolute -top-40 right-0 w-[1200px] h-[1000px] bg-white/8 blur-[90px]"></div>
+        {/* Small orange circles - middle right */}
+        <div className="absolute top-[45%] right-[12%] w-7 h-7 rounded-full bg-[#ff8c42] opacity-75"></div>
+        <div className="absolute top-[50%] right-[20%] w-5 h-5 rounded-full bg-[#ff6b35] opacity-65"></div>
         
-        {/* Middle left white accent */}
-        <div className="absolute top-[30%] -left-80 w-[1100px] h-[1000px] bg-white/6 blur-[80px]"></div>
+        {/* Small orange circles - bottom right */}
+        <div className="absolute bottom-[25%] right-[18%] w-9 h-9 rounded-full bg-[#ffa500] opacity-70"></div>
+        <div className="absolute bottom-[15%] right-[10%] w-6 h-6 rounded-full bg-[#ff8c42] opacity-60"></div>
         
-        {/* Middle right white section */}
-        <div className="absolute top-[40%] -right-80 w-[1300px] h-[1100px] bg-white/7 blur-[90px]"></div>
-        
-        {/* Bottom white coverage */}
-        <div className="absolute -bottom-60 -left-80 w-[1500px] h-[1200px] bg-white/8 blur-[80px]"></div>
-        
-        {/* Bottom right white block */}
-        <div className="absolute -bottom-40 -right-60 w-[1200px] h-[1000px] bg-white/6 blur-[90px]"></div>
+        {/* Small orange circles - left side scattered */}
+        <div className="absolute top-[30%] left-[8%] w-7 h-7 rounded-full bg-[#ff6b35] opacity-65"></div>
+        <div className="absolute top-[60%] left-[15%] w-8 h-8 rounded-full bg-[#ffa500] opacity-70"></div>
+        <div className="absolute bottom-[35%] left-[5%] w-6 h-6 rounded-full bg-[#ff8c42] opacity-60"></div>
       </div>
       
       <div className="relative z-10">
