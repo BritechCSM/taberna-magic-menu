@@ -9,35 +9,25 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Decorative background blocks - Vibrant yellow background */}
+      {/* Decorative background blocks - White on dark */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Massive top yellow coverage */}
-        <div className="absolute -top-60 -left-60 w-[1400px] h-[1200px] opacity-50 blur-[80px]" 
-             style={{ backgroundColor: 'hsl(45 100% 51%)' }}></div>
+        {/* Top left white block */}
+        <div className="absolute -top-60 -left-60 w-[1400px] h-[1200px] bg-white/5 blur-[80px]"></div>
         
-        {/* Top right yellow block */}
-        <div className="absolute -top-40 right-0 w-[1200px] h-[1000px] opacity-55 blur-[90px]" 
-             style={{ backgroundColor: 'hsl(45 100% 51%)' }}></div>
+        {/* Top right white block */}
+        <div className="absolute -top-40 right-0 w-[1200px] h-[1000px] bg-white/8 blur-[90px]"></div>
         
-        {/* Middle left yellow with orange tint */}
-        <div className="absolute top-[30%] -left-80 w-[1100px] h-[1000px] opacity-45 blur-[80px]" 
-             style={{ backgroundColor: 'hsl(45 100% 51%)' }}></div>
+        {/* Middle left white accent */}
+        <div className="absolute top-[30%] -left-80 w-[1100px] h-[1000px] bg-white/6 blur-[80px]"></div>
         
-        {/* Middle right massive yellow section */}
-        <div className="absolute top-[40%] -right-80 w-[1300px] h-[1100px] opacity-50 blur-[90px]" 
-             style={{ backgroundColor: 'hsl(45 100% 51%)' }}></div>
+        {/* Middle right white section */}
+        <div className="absolute top-[40%] -right-80 w-[1300px] h-[1100px] bg-white/7 blur-[90px]"></div>
         
-        {/* Bottom massive yellow coverage */}
-        <div className="absolute -bottom-60 -left-80 w-[1500px] h-[1200px] opacity-55 blur-[80px]" 
-             style={{ backgroundColor: 'hsl(45 100% 51%)' }}></div>
+        {/* Bottom white coverage */}
+        <div className="absolute -bottom-60 -left-80 w-[1500px] h-[1200px] bg-white/8 blur-[80px]"></div>
         
-        {/* Bottom right yellow block */}
-        <div className="absolute -bottom-40 -right-60 w-[1200px] h-[1000px] opacity-50 blur-[90px]" 
-             style={{ backgroundColor: 'hsl(45 100% 51%)' }}></div>
-        
-        {/* Orange accent overlays for warmth */}
-        <div className="absolute top-[50%] left-[20%] w-[800px] h-[800px] opacity-20 blur-[100px]" 
-             style={{ backgroundColor: 'hsl(30 100% 55%)' }}></div>
+        {/* Bottom right white block */}
+        <div className="absolute -bottom-40 -right-60 w-[1200px] h-[1000px] bg-white/6 blur-[90px]"></div>
       </div>
       
       <div className="relative z-10">
