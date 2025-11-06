@@ -4,6 +4,7 @@ import darkTexture from "@/assets/dark-texture.jpg";
 export const About = () => {
   return (
     <section 
+      id="sobre-nosotros"
       className="py-20 relative"
       style={{
         backgroundImage: `url(${darkTexture})`,
@@ -20,6 +21,7 @@ export const About = () => {
               Nuestra pasión es ofrecer platos auténticos y un ambiente acogedor que te hará 
               sentir como en casa.
             </p>
+            <h3 className="text-2xl md:text-3xl font-bold text-white pt-4">Nuestra Taberna</h3>
             <p className="text-lg text-gray-300">
               Cada ingrediente es seleccionado con cuidado para brindarte una experiencia 
               culinaria única. ¡Ven y descubre por qué somos el rincón favorito de los 

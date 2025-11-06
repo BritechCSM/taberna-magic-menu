@@ -36,7 +36,7 @@ export const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center flex-1 space-x-12">
+          <div className="hidden md:flex items-center justify-center flex-1 space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -47,6 +47,12 @@ export const Navigation = () => {
                 {link.label}
               </Link>
             ))}
+            <Button
+              asChild
+              className="bg-[hsl(var(--menu-button))] text-[hsl(var(--menu-button-foreground))] hover:bg-[hsl(var(--menu-button))]/90"
+            >
+              <Link to="/menu">Ver menú</Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
